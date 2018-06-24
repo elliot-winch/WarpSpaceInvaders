@@ -15,8 +15,10 @@ public class GameOverManager : MonoBehaviour {
         }
     }
 
+    public int startLives = 10;
+
     public Text livesUIText;
-    private int lives = 10;
+    private int lives;
 
     public int Lives
     {
@@ -51,6 +53,8 @@ public class GameOverManager : MonoBehaviour {
         }
 
         instance = this;
+
+        lives = startLives;
     }
 
     private void OnTriggerExit2D(Collider2D collider)
