@@ -24,7 +24,8 @@ GameObject:
   - component: {fileID: 114398275670903122}
   - component: {fileID: 50043676397501276}
   - component: {fileID: 114848245472744990}
-  m_Layer: 0
+  - component: {fileID: 114350125222078666}
+  m_Layer: 10
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,6 +90,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.9149418, y: 0.66787803}
   m_EdgeRadius: 0
+--- !u!114 &114350125222078666
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1474190941895412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e8b341fa9e033e4282df5032a3a1bcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  projectileSpeed: 5
+  shootUpOrDown: 0
+  projectile: {fileID: 1691063527092394, guid: 544b3be669b18c14495f1ff41fb0ae1f, type: 2}
+  layerName: EnemyShot
+  color: {r: 1, g: 0, b: 0, a: 1}
+  minTimeBetweenShots: 1
+  maxTimeBetweenShots: 10
 --- !u!114 &114398275670903122
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -101,6 +121,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 10
+  onDestroyedParticleSystem: {fileID: 198137435315326126, guid: 88609033f97645a40a47797e513b89a4,
+    type: 2}
 --- !u!114 &114848245472744990
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -112,8 +134,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee948adb09dc52048933a5e5b4d732d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  linearSpeed: 2
-  anglurSpeed: 50
+  linearSpeed: 3
+  anglurSpeed: 70
   radiusIncreaseDistance: 2
 --- !u!212 &212675907121547364
 SpriteRenderer:

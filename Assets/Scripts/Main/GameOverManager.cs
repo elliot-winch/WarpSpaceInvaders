@@ -16,7 +16,6 @@ public class GameOverManager : MonoBehaviour {
     }
 
     public Text livesUIText;
-
     private int lives = 10;
 
     public int Lives
@@ -28,17 +27,20 @@ public class GameOverManager : MonoBehaviour {
 
         set
         {
-            lives = value;
+            lives = Mathf.Max(0, value);
 
             //update UI
             livesUIText.text = "Lives: " + lives;
 
             if(lives <= 0)
             {
-                GameOver();
+                StartCoroutine(GameOver());
             }
         }
     }
+
+    //For the game over state
+    public GameObject enemyParent;
 
 
     private void Start()
@@ -62,8 +64,19 @@ public class GameOverManager : MonoBehaviour {
         }
     }
 
-    private void GameOver()
+    private IEnumerator GameOver()
     {
+        ScoreTracker.Instance.SaveScore();
 
+        foreach (EnemyHealth e in enemyParent.GetComponentsInChildren<EnemyHealth>())
+        {
+            e.Destroyed();
+        }
+
+        enemyParent.GetComponent<EnemySpawner>().StopAllCoroutines();
+
+        yield return new WaitForSeconds(2f);
+
+        UnityEngine.SceneManagement.SceneManager.LoadScene("GameOver"); 
     }
 }

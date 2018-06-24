@@ -30,7 +30,7 @@ public class EnemySpawner : MonoBehaviour {
         }
     }
 
-    public void SpawnEnemy()
+    private void SpawnEnemy()
     {
         GameObject enemyObj = Instantiate(enemyPrefab, transform.position, Quaternion.Euler(new Vector3(0, 0, 0)), transform);
     }

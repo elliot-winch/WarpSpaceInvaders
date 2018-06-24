@@ -5,37 +5,12 @@ using UnityEngine;
 
 public class EnemyMove : MonoBehaviour {
 
-    private static List<Collider2D> allEnemies;
-
     public float linearSpeed = 0.1f;
     public float anglurSpeed = 5f;
     public float radiusIncreaseDistance = 1f;
 
     private float pathAngle = 360;
     private bool rotating = false;
-
-    private void Start()
-    {
-        if(allEnemies == null)
-        {
-            allEnemies = new List<Collider2D>();
-        }
-
-        List<Collider2D> colliders = GetComponentsInChildren<Collider2D>().ToList();
-
-        foreach(Collider2D c in colliders)
-        {
-            foreach(Collider2D d in allEnemies)
-            {
-                Physics2D.IgnoreCollision(c, d);
-            }
-
-            allEnemies.Add(c);
-
-            Debug.Log(c);
-        }
-
-    }
 
     private void Update()
     {
