@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : Damageable {
+public class PlayerHealth : Damageable {
 
-    protected override void Destroyed()
+    public override void Destroyed()
     {
 
 

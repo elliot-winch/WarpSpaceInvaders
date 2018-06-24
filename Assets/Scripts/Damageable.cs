@@ -35,7 +35,7 @@ public class Damageable : MonoBehaviour {
         }
     }
 
-    protected virtual void Destroyed()
+    public virtual void Destroyed()
     {
         Destroy(gameObject);
     }
