@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class PlayerHealth : Damageable {
 
-    public override void Destroyed()
+    public override void Hit(float amount)
     {
-
-
-        //GameOver when the player is destroyed
+        GameOverManager.Instance.Lives--;
     }
 }
